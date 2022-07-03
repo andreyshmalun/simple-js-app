@@ -1,8 +1,21 @@
-let pokemonList = [
-  { name: 'Nuzleaf', height: 3.03, types: ['grass', 'dark'] },
+let pokemonRepository = (function () {
+  let pokemonList = [{ name: 'Nuzleaf', height: 3.03, types: ['grass', 'dark'] },
   { name: 'Charmander', height: 2, types: 'fire' },
-  { name: 'Bulbasaur', height: 2.04, types: ['grass', 'poison'] }
-];
+  { name: 'Bulbasaur', height: 2.04, types: ['grass', 'poison'] }];
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
 
 
 function pokeLoop(pokemon) {
@@ -13,4 +26,4 @@ function pokeLoop(pokemon) {
   }
 }
 
-pokemonList.forEach(pokeLoop);
+pokemonRepository.getAll().forEach(pokeLoop);
