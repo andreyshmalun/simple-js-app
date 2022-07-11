@@ -2,12 +2,14 @@ body{
 font-family: 'Space Grotesk', sans-serif;
 background-color: #FCFEFE;
 color: #1B262C;
+margin: 0;
 }
 ul{
 list-style: none;
 }
 .btn{
  background-color:#4caf50;
+ width: 150px;
  border:none;
  color:white;
  padding:16px 32px;
@@ -22,4 +24,14 @@ list-style: none;
  background-color:white;
  color:black;
  border:2px solid#4caf50;
+}
+.header{
+    background-color: #ef5350;
+    margin: 0 auto;
+    padding: 5px;
+    height: 50px;
+}
+
+.logo{
+    width: 10%;
 }
