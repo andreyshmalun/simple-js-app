@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
     buttonItem.innerText = pokemon.name.toUpperCase();
     buttonItem.setAttribute('data-toggle', 'modal');
     buttonItem.setAttribute('data-target', '#pokemon-modal');
-    $(buttonItem).addClass('button-class btn');
+    buttonItem.classList.add('button-class', 'btn');
     pokemonItem.appendChild(buttonItem);
     pokemonList.appendChild(pokemonItem);
     buttonItem.addEventListener("click", function (event) {
@@ -119,7 +119,7 @@ function searchFunction(event) {
   let searchQuery = value.toLowerCase();
   for (let pokemonName of pokemonNames) {
     let name = pokemonName.textContent.toLowerCase();
-    //display pokemon name if it contains value inside of search
+    //display pokemon name if it contains value inside of search box
     if (name.includes(searchQuery)) {
       pokemonName.closest('li').style.display = 'inline-block';
     } else {
