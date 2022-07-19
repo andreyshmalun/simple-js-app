@@ -11,6 +11,13 @@ display: flex;
 flex-wrap: wrap;
 }
 
+.form-inline .form-control{
+height: auto;
+margin:4px 2px;
+padding:16px;
+width: 150px;
+}
+
 .btn{
  background-color:#ef5350;
  width: 150px;
@@ -36,10 +43,6 @@ flex-wrap: wrap;
 }
 .navbar{
     background-color: #ef5350;
-}
-
-.logo{
-    width: 10%;
 }
 
 h1{
