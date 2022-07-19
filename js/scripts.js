@@ -15,16 +15,15 @@ let pokemonRepository = (function () {
   }
 
   function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let pokemonItem = document.createElement("li");
-    pokemonList.classList.add("group-list-item");
-    pokemonList.classList.add("col-sm-4", "col-md-6", "col-lg-12");
-    let buttonItem = document.createElement("button");
-    buttonItem.classList.add("pokemonButton");
+    let pokemonList = document.querySelector('.pokemon-list');
+    let pokemonItem = document.createElement('li');
+    pokemonList.classList.add('list-group-item');
+    let buttonItem = document.createElement('button');
+    buttonItem.classList.add('pokemonButton');
     buttonItem.innerText = pokemon.name;
-    buttonItem.setAttribute("data-toggle", "modal");
-    buttonItem.setAttribute("data-target", "#pokemon-modal");
-    $(buttonItem).addClass('button-class btn-block btn m1');
+    buttonItem.setAttribute('data-toggle', 'modal');
+    buttonItem.setAttribute('data-target', '#pokemon-modal');
+    $(buttonItem).addClass('button-class btn');
     pokemonItem.appendChild(buttonItem);
     pokemonList.appendChild(pokemonItem);
     buttonItem.addEventListener("click", function (event) {
@@ -69,14 +68,14 @@ let pokemonRepository = (function () {
   let modalContainer = document.querySelector('#pokemon-modal');
 
   function showModal(pokemon) {
-    let modalBody = $(".modal-body");
-    let modalTitle = $(".modal-title");
+    let modalBody = $('.modal-body');
+    let modalTitle = $('.modal-title');
 
     modalTitle.empty();
     modalBody.empty();
     let nameElement = $('<h1>' + pokemon.name + '</h1>');
     let imageElement = $('<img class="pokemon-img">')
-    imageElement.attr("src", pokemon.imageUrl);
+    imageElement.attr('src', pokemon.imageUrl);
     let heightElement = $('<p>' + 'Height : ' + pokemon.height + '</p>');
     let weightElement = $('<p>' + 'Weight : ' + pokemon.weight + '</p>');
     let typeElement = $('<p>' + 'Types : ' + pokemon.types + '</p>');
@@ -91,17 +90,11 @@ let pokemonRepository = (function () {
 
   }
 
-
-
-
-
-
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       showModal(pokemon);
     });
   }
-
 
   return {
     add: add,
