@@ -9,6 +9,7 @@ list-style: none;
 text-align: center;
 display: flex;
 flex-wrap: wrap;
+justify-content: space-between;
 }
 
 .form-inline .form-control{
@@ -20,7 +21,7 @@ width: 150px;
 
 .btn{
  background-color:#ef5350;
- width: 150px;
+ width: 200px;
  border:none;
  color:white;
  padding:16px 32px;
@@ -28,18 +29,22 @@ width: 150px;
  text-decoration:none;
  display:inline-block;
  font-size:16px;
- margin:4px 2px;
- -webkit-transition-duration:0.4s;
- transition-duration:0.4s;
+ margin:15px;
+ -webkit-transition-duration:0.2s;
+ transition-duration:0.2s;
  cursor:pointer;
  background-color:white;
  color:black;
- border:2px solid #ef5350;
+ border:1px solid #ef5350;
 }
 
 .btn:hover {
   background-color: #ef5350;
   color: white;
+}
+
+.btn:focus{
+  box-shadow: none;
 }
 .navbar{
     background-color: #ef5350;
