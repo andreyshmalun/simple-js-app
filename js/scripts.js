@@ -18,11 +18,10 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector('.pokemon-list');
     let pokemonItem = document.createElement('li');
     let buttonItem = document.createElement('button');
-    buttonItem.classList.add('pokemonButton');
+    buttonItem.classList.add('pokemonButton', 'button-class', 'btn');
     buttonItem.innerText = pokemon.name.toUpperCase();
     buttonItem.setAttribute('data-toggle', 'modal');
     buttonItem.setAttribute('data-target', '#pokemon-modal');
-    buttonItem.classList.add('button-class', 'btn');
     pokemonItem.appendChild(buttonItem);
     pokemonList.appendChild(pokemonItem);
     buttonItem.addEventListener("click", function (event) {
