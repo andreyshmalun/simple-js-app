@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
 
   function add(pokemon) {
     if (typeof pokemon === 'object' && 'name' && 'detailsUrl' in pokemon) {
@@ -19,7 +19,7 @@ let pokemonRepository = (function () {
     let pokemonItem = document.createElement('li');
     let buttonItem = document.createElement('button');
     buttonItem.classList.add('pokemonButton');
-    buttonItem.innerText = pokemon.name;
+    buttonItem.innerText = pokemon.name.toUpperCase();
     buttonItem.setAttribute('data-toggle', 'modal');
     buttonItem.setAttribute('data-target', '#pokemon-modal');
     $(buttonItem).addClass('button-class btn');
@@ -53,7 +53,7 @@ let pokemonRepository = (function () {
       return response.json();
     }).then(function (details) {
       //Add the details to the item
-      item.imageUrl = details.sprites.front_default;
+      item.imageUrl = details.sprites.other.dream_world.front_default;
       item.height = details.height;
       item.weight = details.weight;
       item.types = details.types.map((type) => type.type.name).join(', ');
@@ -112,3 +112,21 @@ pokemonRepository.loadList().then(function () {
 });
 
 
+//search function
+function searchFunction(event) {
+  let pokemonNames = document.getElementsByClassName('pokemonButton');
+  let { value } = event.target;
+  let searchQuery = value.toLowerCase();
+  for (let pokemonName of pokemonNames) {
+    let name = pokemonName.textContent.toLowerCase();
+    //display pokemon name if it contains value inside of search
+    if (name.includes(searchQuery)) {
+      pokemonName.closest('li').style.display = 'inline-block';
+    } else {
+      pokemonName.closest('li').style.display = 'none';
+    }
+  }
+}
+
+let search = document.getElementById('search');
+search.addEventListener('keyup', searchFunction);
