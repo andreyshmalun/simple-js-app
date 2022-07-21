@@ -59,5 +59,11 @@ p {
 }
 
 .pokemon-img {
-  width: 50%;
+  width: 300px;
+  max-width: 50%;
+  min-height: 380px;
+}
+
+.pokemon-img-loading {
+ background: url(../img/loading.gif) no-repeat center;
 }
